@@ -40,18 +40,27 @@
     "telegram": {
       "enterInfo": "Enter the code sent to Telegram for {phoneNumber}.",
       "OTPConfirmationBtn": "Confirm",
-      "getCodeViaSms": "Get login code via SMS"
+      "getCodeViaSms": "Get login code via SMS",
+      "getCodeViaBale": "Get login code via Bale"
+    },
+    "bale": {
+      "enterInfo": "Enter the code sent to Bale for {phoneNumber}.",
+      "OTPConfirmationBtn": "Confirm",
+      "getCodeViaSms": "Get login code via SMS",
+      "getCodeViaTelegram": "Get login code via Telegram"
     },
     "code": {
       "enterInfo": "Enter the code sent to {phoneNumber}.",
       "OTPConfirmationBtn": "Confirm",
-      "getCodeViaTelegram": "Get login code via Telegram"
+      "getCodeViaTelegram": "Get login code via Telegram",
+      "getCodeViaBale": "Get login code via Bale"
     },
     "password": {
       "forgotPassword": "Forgot your password?",
       "continue": "Continue",
       "telegramOption": "Get login code via Telegram",
       "smsOption": "Get login code via SMS",
+      "baleOption": "Get login code via Bale",
       "passwordLabel": "Password",
       "validation": {
         "required": "Password is required",

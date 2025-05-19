@@ -40,12 +40,20 @@
     "telegram": {
       "enterInfo": "کد فرستاده شده در تلگرام برای {phoneNumber} را وارد کنید.",
       "OTPConfirmationBtn": "تایید",
-      "getCodeViaSms": "دریافت کد ورود از طریق پیامک"
+      "getCodeViaSms": "دریافت کد ورود از طریق پیامک",
+      "getCodeViaBale": "دریافت کد ورود از طریق بله"
+    },
+    "bale": {
+      "enterInfo": "کد فرستاده شده در بله برای {phoneNumber} را وارد کنید.",
+      "OTPConfirmationBtn": "تایید",
+      "getCodeViaSms": "دریافت کد ورود از طریق پیامک",
+      "getCodeViaTelegram": "دریافت کد ورود از طریق تلگرام"
     },
     "code": {
       "enterInfo": "کد فرستاده شده برای {phoneNumber} را وارد کنید.",
       "OTPConfirmationBtn": "تایید",
-      "getCodeViaTelegram": "دریافت کد ورود از طریق تلگرام"
+      "getCodeViaTelegram": "دریافت کد ورود از طریق تلگرام",
+      "getCodeViaBale": "دریافت کد ورود از طریق بله"
     },
     "password": {
       "passwordLabel": "رمز عبور",
@@ -53,6 +61,7 @@
       "continue": "ادامه",
       "telegramOption": "دریافت کد ورود از طریق تلگرام",
       "smsOption": "دریافت کد ورود از طریق پیامک",
+      "baleOption": "دریافت کد ورود از طریق بله",
       "validation": {
         "required": "رمز عبور الزامی است",
         "minLength": "رمز عبور باید حداقل ۸ کاراکتر باشد",
