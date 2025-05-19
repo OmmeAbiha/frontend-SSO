@@ -1,0 +1,72 @@
+{
+  "Error": {
+    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
+    "title": "Something went wrong!"
+  },
+  "IndexPage": {
+    "description": "This is a basic example that demonstrates the usage of <code>next-intl</code> with the Next.js App Router. Try changing the locale in the top right corner and see how the content changes.",
+    "title": "next-intl example"
+  },
+  "LocaleLayout": {
+    "title": "next-intl example"
+  },
+  "Manifest": {
+    "name": "next-intl example"
+  },
+  "NotFoundPage": {
+    "title": "404",
+    "description": "The requested page was not found.",
+    "backButton": "Go back to the previous page"
+  },
+  "LocaleSwitcher": {
+    "label": "Language",
+    "locale": "{locale, select, fa {Farsi} en {English} ar {Arabic} other {Other}}"
+  },
+  "DarkModeSwitcher": {
+    "lightLabel": "Light Mode",
+    "darkLabel": "Dark Mode"
+  },
+  "Auth": {
+    "enterInfo": "To sign in or register, please enter your user information:",
+    "codeLabel": "Code",
+    "phoneLabel": "Phone Number",
+    "continueButton": "Continue",
+    "termsText": "Using this service means accepting the <link>Terms and Conditions</link>.",
+    "countryPicker": {
+      "title": "Select Country",
+      "searchLabel": "Enter country name or code",
+      "btnSearch": "Search"
+    },
+    "telegram": {
+      "enterInfo": "Enter the code sent to Telegram for {phoneNumber}.",
+      "OTPConfirmationBtn": "Confirm",
+      "getCodeViaSms": "Get login code via SMS"
+    },
+    "code": {
+      "enterInfo": "Enter the code sent to {phoneNumber}.",
+      "OTPConfirmationBtn": "Confirm",
+      "getCodeViaTelegram": "Get login code via Telegram"
+    },
+    "password": {
+      "forgotPassword": "Forgot your password?",
+      "continue": "Continue",
+      "telegramOption": "Get login code via Telegram",
+      "smsOption": "Get login code via SMS",
+      "passwordLabel": "Password",
+      "validation": {
+        "required": "Password is required",
+        "minLength": "Password must be at least 8 characters long",
+        "uppercase": "Password must contain at least one uppercase letter",
+        "lowercase": "Password must contain at least one lowercase letter",
+        "number": "Password must contain at least one number",
+        "specialChar": "Password must contain at least one special character",
+        "validChars": "Password must only include English letters and valid characters"
+      }
+    },
+    "validation": {
+      "required": "This field is required",
+      "invalidPhone": "Phone number must be at most 11 digits",
+      "invalidCode": "The entered code is invalid"
+    }
+  }
+}

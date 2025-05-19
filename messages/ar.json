@@ -1,0 +1,72 @@
+{
+  "Error": {
+    "description": "<p>عذرًا، حدثت مشكلة.</p><p>يمكنك <retry>إعادة تحميل الصفحة</retry>.</p>",
+    "title": "حدثت مشكلة!"
+  },
+  "IndexPage": {
+    "description": "هذا مثال يوضح كيفية استخدام <code>next-intl</code> مع Next.js App Router. عند تغيير اللغة من الزاوية العلوية اليمنى، يتغير محتوى هذه الصفحة.",
+    "title": "مثال next-intl"
+  },
+  "LocaleLayout": {
+    "title": "مثال next-intl"
+  },
+  "Manifest": {
+    "name": ""
+  },
+  "NotFoundPage": {
+    "title": "٤٠٤",
+    "description": "الصفحة المطلوبة غير موجودة.",
+    "backButton": "العودة إلى الصفحة السابقة"
+  },
+  "LocaleSwitcher": {
+    "label": "اللغة",
+    "locale": "{locale, select, fa {الفارسية} en {الإنجليزية} ar {العربية} other {أخرى}}"
+  },
+  "DarkModeSwitcher": {
+    "lightLabel": "الوضع الفاتح",
+    "darkLabel": "الوضع الداكن"
+  },
+  "Auth": {
+    "enterInfo": "للدخول أو التسجيل، الرجاء إدخال معلوماتك:",
+    "codeLabel": "الرمز",
+    "phoneLabel": "رقم الجوال",
+    "continueButton": "متابعة",
+    "termsText": "باستخدامك لهذه الخدمة، فإنك تقبل <link>الشروط والأحكام</link>.",
+    "countryPicker": {
+      "title": "اختر الدولة",
+      "searchLabel": "أدخل اسم الدولة أو رمزها",
+      "btnSearch": "بحث"
+    },
+    "telegram": {
+      "enterInfo": "أدخل الرمز المرسل إلى التليجرام للرقم {phoneNumber}.",
+      "OTPConfirmationBtn": "تأكيد",
+      "getCodeViaSms": "رمز عبر الرسائل النصية"
+    },
+    "code": {
+      "enterInfo": "أدخل الرمز المرسل إلى الرقم {phoneNumber}.",
+      "OTPConfirmationBtn": "تأكيد",
+      "getCodeViaTelegram": "الحصول على رمز الدخول عبر التليجرام"
+    },
+    "password": {
+      "forgotPassword": "هل نسيت كلمة المرور؟",
+      "continue": "متابعة",
+      "telegramOption": "رمز عبر التليجرام",
+      "smsOption": "رمز عبر الرسائل النصية",
+      "passwordLabel": "كلمة المرور",
+      "validation": {
+        "required": "كلمة المرور مطلوبة",
+        "minLength": "يجب أن تكون كلمة المرور ٨ أحرف على الأقل",
+        "uppercase": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل",
+        "lowercase": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل",
+        "number": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل",
+        "specialChar": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل",
+        "validChars": "يجب أن تحتوي كلمة المرور على أحرف إنجليزية ورموز صالحة فقط"
+      }
+    },
+    "validation": {
+      "required": "هذا الحقل مطلوب",
+      "invalidPhone": "يجب أن يتكون رقم الجوال من ١١ رقمًا كحد أقصى",
+      "invalidCode": "الرمز المدخل غير صالح"
+    }
+  }
+}

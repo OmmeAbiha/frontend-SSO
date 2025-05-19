@@ -1,0 +1,72 @@
+{
+  "Error": {
+    "description": "<p>متاسفانه مشکلی پیش آمده است.</p><p>می‌توانید <retry>این صفحه را دوباره بارگذاری کنید</retry>.</p>",
+    "title": "مشکلی پیش آمده است!"
+  },
+  "IndexPage": {
+    "description": "این یک مثال است که استفاده از <code>next-intl</code> با Next.js App Router را نشان می‌دهد. با تغییر زبان در بالا سمت راست، محتوای این صفحه تغییر می‌کند.",
+    "title": "مثال next-intl"
+  },
+  "LocaleLayout": {
+    "title": "مثال next-intl"
+  },
+  "Manifest": {
+    "name": ""
+  },
+  "NotFoundPage": {
+    "title": "۴۰۴",
+    "description": "صفحه موردنظر یافت نشد.",
+    "backButton": "بازگشت به صفحه قبل"
+  },
+  "LocaleSwitcher": {
+    "label": "زبان",
+    "locale": "{locale, select, fa {فارسی} en {English} ar {العربية} other {Other}}"
+  },
+  "DarkModeSwitcher": {
+    "lightLabel": "حالت روشن",
+    "darkLabel": "حالت تیره"
+  },
+  "Auth": {
+    "enterInfo": "برای ورود یا ثبت‌نام، اطلاعات کاربری خود را وارد کنید:",
+    "codeLabel": "کد",
+    "phoneLabel": "شماره موبایل",
+    "continueButton": "ادامه",
+    "termsText": "استفاده از این سرویس به معنی پذیرش <link>قوانین و مقررات</link> می باشد.",
+    "countryPicker": {
+      "title": "انتخاب کشور",
+      "searchLabel": "نام یا کد کشور را وارد کنید",
+      "btnSearch": "جستجو"
+    },
+    "telegram": {
+      "enterInfo": "کد فرستاده شده در تلگرام برای {phoneNumber} را وارد کنید.",
+      "OTPConfirmationBtn": "تایید",
+      "getCodeViaSms": "دریافت کد ورود از طریق پیامک"
+    },
+    "code": {
+      "enterInfo": "کد فرستاده شده برای {phoneNumber} را وارد کنید.",
+      "OTPConfirmationBtn": "تایید",
+      "getCodeViaTelegram": "دریافت کد ورود از طریق تلگرام"
+    },
+    "password": {
+      "passwordLabel": "رمز عبور",
+      "forgotPassword": "رمزعبور را فراموش کردید؟",
+      "continue": "ادامه",
+      "telegramOption": "دریافت کد ورود از طریق تلگرام",
+      "smsOption": "دریافت کد ورود از طریق پیامک",
+      "validation": {
+        "required": "رمز عبور الزامی است",
+        "minLength": "رمز عبور باید حداقل ۸ کاراکتر باشد",
+        "uppercase": "رمز عبور باید حداقل یک حرف بزرگ داشته باشد",
+        "lowercase": "رمز عبور باید حداقل یک حرف کوچک داشته باشد",
+        "number": "رمز عبور باید حداقل یک عدد داشته باشد",
+        "specialChar": "رمز عبور باید حداقل یک کاراکتر خاص داشته باشد",
+        "validChars": "رمز عبور فقط باید شامل حروف انگلیسی و کاراکترهای مجاز باشد"
+      }
+    },
+    "validation": {
+      "required": "این فیلد الزامی است",
+      "invalidPhone": "شماره موبایل باید حداکثر ۱۱ رقم باشد",
+      "invalidCode": "کد وارد شده معتبر نیست"
+    }
+  }
+}

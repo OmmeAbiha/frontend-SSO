@@ -1,0 +1,112 @@
+.custom-calendar.rmdp-wrapper,
+.rmdp-container .custom-calendar.ep-arrow::after {
+  background-color: bisque;
+}
+
+.rmdp-container .custom-calendar.ep-arrow[direction="bottom"] {
+  border-top: 1px solid bisque;
+}
+
+.rmdp-container .custom-calendar.ep-arrow[direction="top"] {
+  border-bottom: 1px solid bisque;
+}
+
+.rmdp-today {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.rmdp-today > .sd {
+    background-color: transparent !important;
+    color: #0D9488 !important;
+    box-shadow: none !important;
+}
+
+.rmdp-day > .sd {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    color: #757575;
+    
+}
+
+.rmdp-day > .sd:hover {
+    color: white !important;
+}
+
+.rmdp-week-day {
+    color: #0D9488 !important;
+}
+
+.rmdp-arrow-container {
+    padding-top: 2px !important;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+
+.rmdp-range {
+    background-color: #a0e7d14b !important;
+    box-shadow: none !important;
+}
+
+.rmdp-range.start,
+.rmdp-range.end {
+    background-color: #0D9488 !important;
+}
+
+.start{
+    border-radius: 0 6px 6px 0 !important;
+    background-color: #0D9488 !important;
+}
+
+.end{
+    border-radius: 6px 0 0 6px !important;
+    background-color: #0D9488 !important;
+    box-shadow: none;
+}
+
+.rmdp-range.start .sd {
+    color: white !important;
+}
+
+.rmdp-range.end .sd {
+    color: white !important;
+}
+
+/*................................... dark mode ........................................*/
+
+.dark-mode .rmdp-wrapper {
+    background-color: #272727; /* Set background to black */
+}
+
+.dark-mode .rmdp-container {
+    background-color: transparent; /* Set background to black */
+    color: #000;
+}
+
+.dark-mode .rmdp-header-values {
+    color: #ffffff;
+}
+
+.dark-mode .rmdp-month-picker {
+    background-color: #272727;
+}
+
+.dark-mode .rmdp-day {
+    background-color: #222; /* Darker background for days */
+    color: #fff;
+}
+
+.dark-mode .rmdp-day:hover {
+    background-color: #333; /* Darker background on hover */
+}
+
+.dark-mode .rmdp-selected {
+    background-color: #444; /* Darker background for selected days */
+    color: #fff;
+}
+
+.dark-mode .rmdp-week-day {
+    color: #bbb;
+}
