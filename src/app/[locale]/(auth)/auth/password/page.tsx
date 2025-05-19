@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 import TextBox from '@/src/components/inputs/TextBox';
 import Button from '@/src/components/Button';
 import { ArrowLeft, ArrowLeft2, Send2, SmsTracking } from 'iconsax-reactjs';
+import { IconBale } from '../_components/IconBale';
 
 function Page() {
     const router = useRouter();
@@ -68,7 +69,7 @@ function Page() {
                             />
                         </div>
                     </div>
-                    <CustomLink className='text-xs text-secondary-400' href="/auth/forget-password/mobile-verification">{t('forgotPassword')}</CustomLink>
+                    {/* <CustomLink className='text-xs text-secondary-400' href="/auth/forget-password/mobile-verification">{t('forgotPassword')}</CustomLink> */}
                 </div>
                 <Button
                     title={t('continue')}
@@ -78,6 +79,16 @@ function Page() {
                 />
             </form>
             <div className='flex flex-col w-full gap-3 mt-8'>
+                <Button
+                    variant='outline'
+                    onClick={() => router.push("/auth/code")}
+                >
+                    <div className='w-full h-full font-normal flex items-center justify-between'>
+                        <SmsTracking size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
+                        <span className='text-sm'>{t('smsOption')}</span>
+                        <ArrowLeft2 size={20} className={`${isEnglish && "rotate-180"}`} />
+                    </div>
+                </Button>
                 <Button
                     variant='outline'
                     onClick={() => router.push("/auth/telegram")}
@@ -90,11 +101,21 @@ function Page() {
                 </Button>
                 <Button
                     variant='outline'
-                    onClick={() => router.push("/auth/code")}
+                    onClick={() => router.push("/auth/bale")}
                 >
-                    <div className='w-full h-full font-normal flex items-center justify-between'>
-                        <SmsTracking size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
-                        <span className='text-sm'>{t('smsOption')}</span>
+                    <div className='w-full h-full flex font-normal items-center justify-between'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <g clipPath="url(#clip0_4418_9829)">
+                                <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z" stroke="#FDB713" strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round" />
+                                <path d="M7.75 11.9999L10.58 14.8299L16.25 9.16992" stroke="#FDB713" strokeWidth="2.8" stroke-linecap="round" strokeLinejoin="round" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_4418_9829">
+                                    <rect width="24" height="24" fill="red" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span className='text-sm'>{t('baleOption')}</span>
                         <ArrowLeft2 size={20} className={`${isEnglish && "rotate-180"}`} />
                     </div>
                 </Button>

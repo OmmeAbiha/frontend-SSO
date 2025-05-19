@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import Button from '@/src/components/Button';
 import { OtpInput } from '../_components/OtpInput';
 // Iconsax
-import { ArrowLeft, ArrowLeft2, SmsTracking } from 'iconsax-reactjs';
+import { ArrowLeft, ArrowLeft2, Send2, SmsTracking } from 'iconsax-reactjs';
 // Next Intl
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/src/i18n/routing';
@@ -18,7 +18,7 @@ function Page() {
   const OtpInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
   const dispatch = useDispatch();
-  const t = useTranslations('Auth.telegram');
+  const t = useTranslations('Auth.bale');
   const locale = useLocale();
   const isEnglish = locale === 'en';
 
@@ -56,17 +56,29 @@ function Page() {
           icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
         />
       </form>
-      <Button
-        variant='outline'
-        className='mt-8'
-        onClick={() => router.push("/auth/code")}
-      >
-        <div className='w-full h-full flex font-normal items-center justify-between'>
-          <SmsTracking size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
-          <span className='text-sm'>{t('getCodeViaSms')}</span>
-          <ArrowLeft2 size={20} className={`${isEnglish && "rotate-180"}`} />
-        </div>
-      </Button>
+      <div className='flex flex-col w-full gap-3'>
+        <Button
+          variant='outline'
+          className='mt-8'
+          onClick={() => router.push("/auth/code")}
+        >
+          <div className='w-full h-full flex font-normal items-center justify-between'>
+            <SmsTracking size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
+            <span className='text-sm'>{t('getCodeViaSms')}</span>
+            <ArrowLeft2 size={20} className={`${isEnglish && "rotate-180"}`} />
+          </div>
+        </Button>
+        <Button
+          variant='outline'
+          onClick={() => router.push("/auth/telegram")}
+        >
+          <div className='w-full h-full font-normal flex items-center justify-between'>
+            <Send2 size={20} className={`${!isEnglish && "[transform:rotateY(180deg)]"}`} />
+            <span className='text-sm'>{t('getCodeViaTelegram')}</span>
+            <ArrowLeft2 size={20} className={`${isEnglish && "rotate-180"}`} />
+          </div>
+        </Button>
+      </div>
     </div>
   )
 }
