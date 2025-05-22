@@ -11,6 +11,7 @@ import { useRouter } from '@/src/i18n/routing';
 // Redux
 import { clearOtpLength } from '@/store/features/authSlice'
 import { useDispatch } from 'react-redux';
+import { InfoBox } from '@/src/components/InfoBox';
 
 function Page() {
   const [otp, setOtp] = useState('');
@@ -43,6 +44,13 @@ function Page() {
 
       {!hasClickedBotLink ? (
         <>
+          <InfoBox
+            type="info"
+            title={t('titleInfo')}
+            message={t('pleaseRegisterThenReturnInfo')}
+            className='mb-5'
+          />
+
           <Button
             onClick={() => {
               window.open("https://t.me/your_bot_username", "_blank");
@@ -52,11 +60,8 @@ function Page() {
             iconPosition='end'
             icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
           >
-            
+
           </Button>
-          <p className='text-xs text-gray-500 mt-3'>
-            {t('pleaseRegisterThenReturn')}
-          </p>
         </>
       ) : (
         <>

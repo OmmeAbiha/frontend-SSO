@@ -41,7 +41,10 @@
       "enterInfo": "أدخل الرمز المرسل إلى التليجرام للرقم {phoneNumber}.",
       "OTPConfirmationBtn": "تأكيد",
       "getCodeViaSms": "الحصول على رمز الدخول عبر الرسائل النصية",
-      "getCodeViaBale": "الحصول على رمز الدخول عبر بله"
+      "getCodeViaBale": "الحصول على رمز الدخول عبر بله",
+      "goToTelegramBotBtn": "الذهاب إلى بوت التليجرام",
+      "pleaseRegisterThenReturnInfo": "يرجى التسجيل في البوت، ثم العودة إلى هذه الصفحة.",
+      "titleInfo": "تنبيه"
     },
     "bale": {
       "enterInfo": "أدخل الرمز المرسل إلى بله للرقم {phoneNumber}.",

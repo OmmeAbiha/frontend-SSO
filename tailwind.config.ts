@@ -63,34 +63,34 @@ export default {
 
         success: {
           100: 'hsl(var(--success-100))',
-          300: 'hsl(var(--success-300))',
-          400: 'hsl(var(--success-400))',
-          500: 'hsl(var(--success-500))',
-          700: 'hsl(var(--success-700))',
+          200: 'hsl(var(--success-300))',
+          300: 'hsl(var(--success-400))',
+          400: 'hsl(var(--success-500))',
+          500: 'hsl(var(--success-700))',
         },
 
         warning: {
           100: 'hsl(var(--warning-100))',
-          300: 'hsl(var(--warning-300))',
-          400: 'hsl(var(--warning-400))',
-          500: 'hsl(var(--warning-500))',
-          700: 'hsl(var(--warning-700))',
+          200: 'hsl(var(--warning-300))',
+          300: 'hsl(var(--warning-400))',
+          400: 'hsl(var(--warning-500))',
+          500: 'hsl(var(--warning-700))',
         },
 
         info: {
           100: 'hsl(var(--info-100))',
-          300: 'hsl(var(--info-300))',
-          400: 'hsl(var(--info-400))',
-          500: 'hsl(var(--info-500))',
-          700: 'hsl(var(--info-700))',
+          200: 'hsl(var(--info-300))',
+          300: 'hsl(var(--info-400))',
+          400: 'hsl(var(--info-500))',
+          500: 'hsl(var(--info-700))',
         },
 
         danger: {
           100: 'hsl(var(--danger-100))',
-          300: 'hsl(var(--danger-300))',
-          400: 'hsl(var(--danger-400))',
-          500: 'hsl(var(--danger-500))',
-          700: 'hsl(var(--danger-700))',
+          200: 'hsl(var(--danger-300))',
+          300: 'hsl(var(--danger-400))',
+          400: 'hsl(var(--danger-500))',
+          500: 'hsl(var(--danger-700))',
         },
 
         border: {

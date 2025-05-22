@@ -41,7 +41,10 @@
       "enterInfo": "Enter the code sent to Telegram for {phoneNumber}.",
       "OTPConfirmationBtn": "Confirm",
       "getCodeViaSms": "Get login code via SMS",
-      "getCodeViaBale": "Get login code via Bale"
+      "getCodeViaBale": "Get login code via Bale",
+      "goToTelegramBotBtn": "Go to Telegram Bot",
+      "pleaseRegisterThenReturnInfo": "Please register in the bot, then return to this page.",
+      "titleInfo": "Notice"
     },
     "bale": {
       "enterInfo": "Enter the code sent to Bale for {phoneNumber}.",
