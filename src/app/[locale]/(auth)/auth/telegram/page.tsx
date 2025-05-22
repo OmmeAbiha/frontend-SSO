@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux';
 function Page() {
   const [otp, setOtp] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [hasClickedBotLink, setHasClickedBotLink] = useState(false);
   const OtpInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -30,36 +31,62 @@ function Page() {
     }
   }, []);
 
-  const handleSubmit = () => {
-    console.log("handleSubmit");
+  const handleSubmit = (e?: React.FormEvent) => {
+    e?.preventDefault();
+    console.log("handleSubmit:", otp);
+    // اینجا می‌تونی otp رو بفرستی به سرور
   }
 
   return (
     <div className="w-full">
-      <p className='text-xs text-tertiary-600 mb-5'>
-        {t('enterInfo', { phoneNumber })}
-      </p>
-      <form className='flex flex-col w-full gap-y-4' onSubmit={handleSubmit}>
-        <OtpInput
-          value={otp}
-          onChange={setOtp}
-          onComplete={() => {
-            OtpInputRef.current?.blur();
-            handleSubmit();
-          }}
-          ref={OtpInputRef}
-        />
-        <Button
-          title={t('OTPConfirmationBtn')}
-          type='submit'
-          iconPosition='end'
-          icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
-        />
-      </form>
-      <div className='flex flex-col w-full gap-3'>
+
+
+      {!hasClickedBotLink ? (
+        <>
+          <Button
+            onClick={() => {
+              window.open("https://t.me/your_bot_username", "_blank");
+              setHasClickedBotLink(true);
+            }}
+            title={t('goToTelegramBotBtn')}
+            iconPosition='end'
+            icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
+          >
+            
+          </Button>
+          <p className='text-xs text-gray-500 mt-3'>
+            {t('pleaseRegisterThenReturn')}
+          </p>
+        </>
+      ) : (
+        <>
+          <p className='text-xs text-tertiary-600 mb-5'>
+            {t('enterInfo', { phoneNumber })}
+          </p>
+          <form className='flex flex-col w-full gap-y-4' onSubmit={handleSubmit}>
+            <OtpInput
+              value={otp}
+              onChange={setOtp}
+              onComplete={() => {
+                OtpInputRef.current?.blur();
+                handleSubmit();
+              }}
+              ref={OtpInputRef}
+            />
+            <Button
+              title={t('OTPConfirmationBtn')}
+              type='submit'
+              iconPosition='end'
+              icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
+            />
+          </form>
+        </>
+
+      )}
+
+      <div className='flex flex-col w-full gap-3 mt-8'>
         <Button
           variant='outline'
-          className='mt-8'
           onClick={() => router.push("/auth/code")}
         >
           <div className='w-full h-full flex font-normal items-center justify-between'>

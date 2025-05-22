@@ -40,6 +40,8 @@
     "telegram": {
       "enterInfo": "کد فرستاده شده در تلگرام برای {phoneNumber} را وارد کنید.",
       "OTPConfirmationBtn": "تایید",
+      "goToTelegramBotBtn": "ورود به ربات تلگرام",
+      "pleaseRegisterThenReturn": "لطفاً در ربات ثبت‌نام کنید، سپس به این صفحه برگردید.",
       "getCodeViaSms": "دریافت کد ورود از طریق پیامک",
       "getCodeViaBale": "دریافت کد ورود از طریق بله"
     },
