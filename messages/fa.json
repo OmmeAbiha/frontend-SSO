@@ -23,8 +23,9 @@
     "locale": "{locale, select, fa {فارسی} en {English} ar {العربية} other {Other}}"
   },
   "DarkModeSwitcher": {
-    "lightLabel": "حالت روشن",
-    "darkLabel": "حالت تیره"
+    "lightLabel": "روشن",
+    "darkLabel": "تیره",
+    "systemLabel": "سیستم"
   },
   "Auth": {
     "enterInfo": "برای ورود یا ثبت‌نام، اطلاعات کاربری خود را وارد کنید:",

@@ -23,8 +23,9 @@
     "locale": "{locale, select, fa {الفارسية} en {الإنجليزية} ar {العربية} other {أخرى}}"
   },
   "DarkModeSwitcher": {
-    "lightLabel": "الوضع الفاتح",
-    "darkLabel": "الوضع الداكن"
+    "lightLabel": "الفاتح",
+    "darkLabel": "الداكن",
+    "systemLabel": "النظام"
   },
   "Auth": {
     "enterInfo": "للدخول أو التسجيل، الرجاء إدخال معلوماتك:",

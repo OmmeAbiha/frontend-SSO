@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider, useTheme } from "next-themes";
 import { Provider } from "react-redux";
 import { store } from "@/store/store";
 // next intl
@@ -36,9 +36,19 @@ export default function Providers({ children, messages, locale }: ProvidersProps
       <NextIntlClientProvider timeZone="Asia/Tehran" messages={messages} locale={locale}>
         <Toaster />
         <ThemeProvider defaultTheme="system" enableSystem>
+          <ThemeLogger />
           {children}
         </ThemeProvider>
       </NextIntlClientProvider>
     </Provider>
   );
+}
+
+
+function ThemeLogger() {
+  const { theme } = useTheme();
+  useEffect(() => {
+    console.log(theme);
+  }, [theme]); // فقط زمانی که theme تغییر کند لاگ می‌گیرد
+  return null;
 }

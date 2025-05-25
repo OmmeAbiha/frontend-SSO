@@ -1,15 +1,17 @@
 "use client"
 import React, { useEffect, useRef } from 'react';
-import Link from 'next/link';
 import { useRouter } from '@/i18n/routing';
+// Next Intl
 import { useTranslations, useLocale } from 'next-intl';
-import CustomLink from '@/src/components/CustomLink';
+// Formik
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+// Components
 import TextBox from '@/src/components/inputs/TextBox';
 import Button from '@/src/components/Button';
+import CustomLink from '@/src/components/CustomLink';
+// Iconsax
 import { ArrowLeft, ArrowLeft2, Send2, SmsTracking } from 'iconsax-reactjs';
-import { IconBale } from '../_components/IconBale';
 
 function Page() {
     const router = useRouter();
@@ -41,6 +43,8 @@ function Page() {
             };
 
             console.log(data);
+
+            // router.push(`/auth?callbackUrl=${encodeURIComponent('/checkout')}`)
             // router.push(`/auth/change-password`);
         }
     });

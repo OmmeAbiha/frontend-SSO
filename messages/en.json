@@ -23,8 +23,9 @@
     "locale": "{locale, select, fa {Farsi} en {English} ar {Arabic} other {Other}}"
   },
   "DarkModeSwitcher": {
-    "lightLabel": "Light Mode",
-    "darkLabel": "Dark Mode"
+    "lightLabel": "Light",
+    "darkLabel": "Dark",
+    "systemLabel": "System"
   },
   "Auth": {
     "enterInfo": "To sign in or register, please enter your user information:",
