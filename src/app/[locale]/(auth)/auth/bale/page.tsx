@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 // Components
 import Button from '@/src/components/Button';
 import { OtpInput } from '../_components/OtpInput';
+import { InfoBox } from '@/src/components/InfoBox';
 // Iconsax
 import { ArrowLeft, ArrowLeft2, Send2, SmsTracking } from 'iconsax-reactjs';
 // Next Intl
@@ -15,6 +16,7 @@ import { useDispatch } from 'react-redux';
 function Page() {
   const [otp, setOtp] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [hasClickedBotLink, setHasClickedBotLink] = useState(false);
   const OtpInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -30,36 +32,60 @@ function Page() {
     }
   }, []);
 
-  const handleSubmit = () => {
-    console.log("handleSubmit");
+  const handleSubmit = (e?: React.FormEvent) => {
+    e?.preventDefault();
+    console.log("handleSubmit:", otp);
+    // اینجا می‌تونی otp رو بفرستی به سرور
   }
 
   return (
     <div className="w-full">
-      <p className='text-xs text-tertiary-600 mb-5'>
-        {t('enterInfo', { phoneNumber })}
-      </p>
-      <form className='flex flex-col w-full gap-y-4' onSubmit={handleSubmit}>
-        <OtpInput
-          value={otp}
-          onChange={setOtp}
-          onComplete={() => {
-            OtpInputRef.current?.blur();
-            handleSubmit();
-          }}
-          ref={OtpInputRef}
-        />
-        <Button
-          title={t('OTPConfirmationBtn')}
-          type='submit'
-          iconPosition='end'
-          icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
-        />
-      </form>
-      <div className='flex flex-col w-full gap-3'>
+      {!hasClickedBotLink ? (
+        <>
+          <InfoBox
+            type="info"
+            title={t('titleInfo')}
+            message={t('pleaseRegisterThenReturnInfo')}
+            className='mb-5'
+          />
+          <Button
+            onClick={() => {
+              window.open("https://web.bale.ai/@your_bale_bot_username", "_blank");
+              setHasClickedBotLink(true);
+            }}
+            title={t('goToBaleBotBtn')}
+            iconPosition='end'
+            icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
+          />
+        </>
+      ) : (
+        <>
+          <p className='text-xs text-tertiary-600 mb-5'>
+            {t('enterInfo', { phoneNumber })}
+          </p>
+          <form className='flex flex-col w-full gap-y-4' onSubmit={handleSubmit}>
+            <OtpInput
+              value={otp}
+              onChange={setOtp}
+              onComplete={() => {
+                OtpInputRef.current?.blur();
+                handleSubmit();
+              }}
+              ref={OtpInputRef}
+            />
+            <Button
+              title={t('OTPConfirmationBtn')}
+              type='submit'
+              iconPosition='end'
+              icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
+            />
+          </form>
+        </>
+      )}
+
+      <div className='flex flex-col w-full gap-3 mt-8'>
         <Button
           variant='outline'
-          className='mt-8'
           onClick={() => router.push("/auth/code")}
         >
           <div className='w-full h-full flex font-normal items-center justify-between'>

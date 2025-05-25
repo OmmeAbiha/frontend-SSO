@@ -41,15 +41,17 @@
       "enterInfo": "کد فرستاده شده در تلگرام برای {phoneNumber} را وارد کنید.",
       "OTPConfirmationBtn": "تایید",
       "goToTelegramBotBtn": "ورود به ربات تلگرام",
-      "pleaseRegisterThenReturnInfo": "لطفاً در ربات ثبت‌نام کنید، سپس به این صفحه برگردید.",
+      "pleaseRegisterThenReturnInfo": "ابتدا در ربات تلگرام ثبت‌نام کنید. سپس به این صفحه بازگردید و کد دریافتی از ربات را وارد نمایید.",
       "titleInfo": "توجه",
-
       "getCodeViaSms": "دریافت کد ورود از طریق پیامک",
       "getCodeViaBale": "دریافت کد ورود از طریق بله"
     },
     "bale": {
       "enterInfo": "کد فرستاده شده در بله برای {phoneNumber} را وارد کنید.",
       "OTPConfirmationBtn": "تایید",
+      "goToBaleBotBtn": "ورود به ربات بله",
+      "pleaseRegisterThenReturnInfo": "ابتدا در ربات بله ثبت‌نام کنید. سپس به این صفحه بازگردید و کد دریافتی از ربات را وارد نمایید.",
+      "titleInfo": "توجه",
       "getCodeViaSms": "دریافت کد ورود از طریق پیامک",
       "getCodeViaTelegram": "دریافت کد ورود از طریق تلگرام"
     },

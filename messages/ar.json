@@ -43,14 +43,17 @@
       "getCodeViaSms": "الحصول على رمز الدخول عبر الرسائل النصية",
       "getCodeViaBale": "الحصول على رمز الدخول عبر بله",
       "goToTelegramBotBtn": "الذهاب إلى بوت التليجرام",
-      "pleaseRegisterThenReturnInfo": "يرجى التسجيل في البوت، ثم العودة إلى هذه الصفحة.",
+      "pleaseRegisterThenReturnInfo": "يرجى التسجيل في بوت التليجرام، ثم العودة إلى هذه الصفحة وإدخال الرمز الذي استلمته من البوت.",
       "titleInfo": "تنبيه"
     },
     "bale": {
       "enterInfo": "أدخل الرمز المرسل إلى بله للرقم {phoneNumber}.",
       "OTPConfirmationBtn": "تأكيد",
       "getCodeViaSms": "الحصول على رمز الدخول عبر الرسائل النصية",
-      "getCodeViaTelegram": "الحصول على رمز الدخول عبر التليجرام"
+      "getCodeViaTelegram": "الحصول على رمز الدخول عبر التليجرام",
+      "goToBaleBotBtn": "الذهاب إلى بوت بله",
+      "pleaseRegisterThenReturnInfo": "يرجى التسجيل في بوت بله، ثم العودة إلى هذه الصفحة وإدخال الرمز الذي استلمته من البوت.",
+      "titleInfo": "تنبيه"
     },
     "code": {
       "enterInfo": "أدخل الرمز المرسل إلى الرقم {phoneNumber}.",

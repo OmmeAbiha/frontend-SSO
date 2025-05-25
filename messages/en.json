@@ -43,14 +43,17 @@
       "getCodeViaSms": "Get login code via SMS",
       "getCodeViaBale": "Get login code via Bale",
       "goToTelegramBotBtn": "Go to Telegram Bot",
-      "pleaseRegisterThenReturnInfo": "Please register in the bot, then return to this page.",
+      "pleaseRegisterThenReturnInfo": "Please register in the Telegram bot, then return to this page and enter the code you received from the bot.",
       "titleInfo": "Notice"
     },
     "bale": {
       "enterInfo": "Enter the code sent to Bale for {phoneNumber}.",
       "OTPConfirmationBtn": "Confirm",
       "getCodeViaSms": "Get login code via SMS",
-      "getCodeViaTelegram": "Get login code via Telegram"
+      "getCodeViaTelegram": "Get login code via Telegram",
+      "goToBaleBotBtn": "Go to Bale Bot",
+      "pleaseRegisterThenReturnInfo": "Please register in the Bale bot, then return to this page and enter the code you received from the bot.",
+      "titleInfo": "Notice"
     },
     "code": {
       "enterInfo": "Enter the code sent to {phoneNumber}.",
