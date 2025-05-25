@@ -35,7 +35,7 @@ export default function Providers({ children, messages, locale }: ProvidersProps
     <Provider store={store}>
       <NextIntlClientProvider timeZone="Asia/Tehran" messages={messages} locale={locale}>
         <Toaster />
-        <ThemeProvider defaultTheme="system" enableSystem>
+        <ThemeProvider defaultTheme="light" enableSystem>
           <ThemeLogger />
           {children}
         </ThemeProvider>
