@@ -67,7 +67,7 @@ export default function LocaleSwitcherMenu() {
         aria-label="Toggle locale dropdown"
       >
         {isPending ? (
-          <LoadingBox size={40} color="#FDB612" />
+          <LoadingBox size={35} color="#FDB612" />
         ) : (
           <div className="flex w-full h-full gap-2 items-center justify-between">
             <div className="flex gap-2">

@@ -124,8 +124,8 @@ const DarkModeToggleSwitch = ({
                 key={item}
                 type="button"
                 onClick={() => handleSelectTheme(item)}
-                className={`flex items-center gap-2 w-full px-3 h-10 text-sm transition-colors text-primary-main
-                  ${theme === item ? 'bg-primary-main text-background' : 'hover:bg-primary-veryLight'}
+                className={`flex items-center gap-2 w-full px-3 h-10 text-sm transition-colors
+                  ${theme === item ? 'bg-primary-main text-background' : 'hover:bg-primary-veryLight text-primary-main'}
                 `}
                 aria-current={theme === item}
               >
