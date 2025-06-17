@@ -23,8 +23,8 @@
     "locale": "{locale, select, fa {Farsi} en {English} ar {Arabic} other {Other}}"
   },
   "DarkModeSwitcher": {
-    "lightLabel": "Light",
-    "darkLabel": "Dark",
+    "lightLabel": "Light Mode",
+    "darkLabel": "Dark Mode",
     "systemLabel": "System"
   },
   "Auth": {
@@ -44,17 +44,14 @@
       "getCodeViaSms": "Get login code via SMS",
       "getCodeViaBale": "Get login code via Bale",
       "goToTelegramBotBtn": "Go to Telegram Bot",
-      "pleaseRegisterThenReturnInfo": "Please register in the Telegram bot, then return to this page and enter the code you received from the bot.",
+      "pleaseRegisterThenReturnInfo": "Please register in the bot, then return to this page.",
       "titleInfo": "Notice"
     },
     "bale": {
       "enterInfo": "Enter the code sent to Bale for {phoneNumber}.",
       "OTPConfirmationBtn": "Confirm",
       "getCodeViaSms": "Get login code via SMS",
-      "getCodeViaTelegram": "Get login code via Telegram",
-      "goToBaleBotBtn": "Go to Bale Bot",
-      "pleaseRegisterThenReturnInfo": "Please register in the Bale bot, then return to this page and enter the code you received from the bot.",
-      "titleInfo": "Notice"
+      "getCodeViaTelegram": "Get login code via Telegram"
     },
     "code": {
       "enterInfo": "Enter the code sent to {phoneNumber}.",

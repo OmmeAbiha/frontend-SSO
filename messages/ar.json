@@ -23,8 +23,8 @@
     "locale": "{locale, select, fa {الفارسية} en {الإنجليزية} ar {العربية} other {أخرى}}"
   },
   "DarkModeSwitcher": {
-    "lightLabel": "الفاتح",
-    "darkLabel": "الداكن",
+    "lightLabel": "الوضع الفاتح",
+    "darkLabel": "الوضع الداكن",
     "systemLabel": "النظام"
   },
   "Auth": {
@@ -44,17 +44,14 @@
       "getCodeViaSms": "الحصول على رمز الدخول عبر الرسائل النصية",
       "getCodeViaBale": "الحصول على رمز الدخول عبر بله",
       "goToTelegramBotBtn": "الذهاب إلى بوت التليجرام",
-      "pleaseRegisterThenReturnInfo": "يرجى التسجيل في بوت التليجرام، ثم العودة إلى هذه الصفحة وإدخال الرمز الذي استلمته من البوت.",
+      "pleaseRegisterThenReturnInfo": "يرجى التسجيل في البوت، ثم العودة إلى هذه الصفحة.",
       "titleInfo": "تنبيه"
     },
     "bale": {
       "enterInfo": "أدخل الرمز المرسل إلى بله للرقم {phoneNumber}.",
       "OTPConfirmationBtn": "تأكيد",
       "getCodeViaSms": "الحصول على رمز الدخول عبر الرسائل النصية",
-      "getCodeViaTelegram": "الحصول على رمز الدخول عبر التليجرام",
-      "goToBaleBotBtn": "الذهاب إلى بوت بله",
-      "pleaseRegisterThenReturnInfo": "يرجى التسجيل في بوت بله، ثم العودة إلى هذه الصفحة وإدخال الرمز الذي استلمته من البوت.",
-      "titleInfo": "تنبيه"
+      "getCodeViaTelegram": "الحصول على رمز الدخول عبر التليجرام"
     },
     "code": {
       "enterInfo": "أدخل الرمز المرسل إلى الرقم {phoneNumber}.",
