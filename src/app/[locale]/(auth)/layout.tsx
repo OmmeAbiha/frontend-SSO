@@ -1,7 +1,6 @@
-
 import { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
-// i18n
+// I18n
 import { routing } from '@/i18n/routing';
 // Next Intl
 import { getTranslations, setRequestLocale } from 'next-intl/server';

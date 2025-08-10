@@ -4,8 +4,8 @@ import { FC, ReactNode, useEffect, useRef } from 'react';
 import { CloseSquare } from 'iconsax-reactjs';
 // Framer Motion
 import { motion, AnimatePresence } from 'framer-motion';
-// Function
-import getScrollbarWidth from "@/functions/getScrollbarWidth";
+// Hook
+import useScrollbarWidth from "@/hooks/useScrollbarWidth";
 // Next Intl
 import { useLocale } from 'next-intl';
 
@@ -34,13 +34,13 @@ const modalVariants = {
 const Modal: FC<ModalProps> = ({ isOpen, setIsOpen, className = '', containerClassName = '', children, title, headerContent }) => {
     const modalContentRef = useRef<HTMLDivElement>(null);
     const locale = useLocale();
+    const scrollBarWidth = useScrollbarWidth();
     const isEnglish = locale === 'en';
 
     useEffect(() => {
         const header = document.getElementById("header_dashboard");
 
         const updateScrollbar = () => {
-            const scrollBarWidth = getScrollbarWidth();
             document.body.style.overflowY = "hidden";
             document.body.style.paddingRight = `${scrollBarWidth}px`;
             if (header) header.style.paddingRight = `${scrollBarWidth}px`;

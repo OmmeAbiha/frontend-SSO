@@ -1,0 +1,59 @@
+"use client"
+import React, { useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
+// Js Cookie
+import Cookies from 'js-cookie';
+// Next Intl
+import { useLocale } from 'next-intl';
+//services
+import checkAuthentication from '@/services/sso/checkAuthentication'
+// Functions
+import getRedirectParam from '@/src/functions/getRedirectParam';
+
+function Page() {
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('redirectTo');
+  const locale = useLocale();
+
+  useEffect(() => {
+    const runSSO = async () => {
+      const TOKEN = Cookies.get('TOKEN');
+      const browserID = localStorage.getItem('BROWSER_ID');
+      const browserName = navigator.userAgent;
+      
+      console.log(navigator.userAgent)
+
+      if (!TOKEN || !browserID || !browserName) {
+        window.location.href = getRedirectParam(`/${locale}/auth`, redirectTo);
+        return;
+      }
+
+      const data = {
+        browser: browserName,
+        browserID: browserID,
+        callbackURL: redirectTo,
+        token: TOKEN,
+      };
+
+      checkAuthentication(data)
+        .then((res) => {
+          console.log(res.data.data)
+          const tempToken = res.data.data;
+          window.location.href = `${redirectTo}?tempToken=${tempToken}`;
+        })
+        .catch(() => {
+          window.location.href = getRedirectParam(`/${locale}/auth`, redirectTo);
+        })
+    }
+
+    runSSO();
+  }, [redirectTo]);
+
+  return (
+    <div>
+      <p>در حال انتقال...</p>
+    </div>
+  )
+}
+
+export default Page

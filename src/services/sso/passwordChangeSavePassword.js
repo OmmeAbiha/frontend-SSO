@@ -1,11 +1,11 @@
 import { dynamicRequest } from "../dynamicRequest";
-import { person } from '../APIRepositories'
+import { sso } from '../APIFactory'
 
-const auth = async (data) => {
+const passwordChangeSavePassword = async (data) => {
     const option = {
-        axios: person,
+        axios: sso,
         method: 'POST',
-        endpoint: '/auth',
+        endpoint: '/passwordChange/SavePassword',
         data: data
     }
 
@@ -17,4 +17,4 @@ const auth = async (data) => {
     }
 };
 
-export default auth;
+export default passwordChangeSavePassword;

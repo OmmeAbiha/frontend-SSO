@@ -13,11 +13,12 @@ export function cn(...inputs: ClassValue[]) {
 interface OtpInputProps {
     value: string
     onChange: (val: string) => void
-    onComplete?: () => void
+    onComplete?: (val: string) => void
+    isError?: boolean
 }
 
 export const OtpInput = forwardRef<HTMLInputElement, OtpInputProps>(
-    ({ value, onChange, onComplete, ...rest }, ref) => {
+    ({ value, onChange, onComplete, isError = false, ...rest }, ref) => {
         const dispatch = useDispatch();
 
         const handleChange = (val: string) => {
@@ -34,9 +35,9 @@ export const OtpInput = forwardRef<HTMLInputElement, OtpInputProps>(
                 }
 
                 onChange(val);
-
+                
                 if (newLength === 6 && onComplete) {
-                    onComplete();
+                    onComplete(val);
                 }
             }
         };
@@ -48,21 +49,39 @@ export const OtpInput = forwardRef<HTMLInputElement, OtpInputProps>(
                     ref={ref}
                     maxLength={6}
                     autoFocus
-                    pattern="\d"
                     value={value}
                     onChange={handleChange}
-                    containerClassName="group w-full fcc items-center has-[:disabled]:opacity-30"
+                    containerClassName={cn(
+                        "group w-full fcc items-center has-[:disabled]:opacity-30",
+                        {
+                            'opacity-90': isError
+                        }
+                    )}
                     render={({ slots }) => (
                         <div className="flex gap-2">
                             <div className="flex">
                                 {slots.slice(0, 3).map((slot, idx) => (
-                                    <Slot key={idx} {...slot} isMiddle={idx === 1} isStart={idx === 0} isEnd={idx === 2} />
+                                    <Slot 
+                                        key={idx} 
+                                        {...slot} 
+                                        isMiddle={idx === 1} 
+                                        isStart={idx === 0} 
+                                        isEnd={idx === 2}
+                                        isError={isError}
+                                    />
                                 ))}
                             </div>
-                            <FakeDash />
+                            <FakeDash isError={isError} />
                             <div className="flex">
                                 {slots.slice(3, 6).map((slot, idx) => (
-                                    <Slot key={idx} {...slot} isMiddle={idx === 1} isStart={idx === 0} isEnd={idx === 2} />
+                                    <Slot 
+                                        key={idx} 
+                                        {...slot} 
+                                        isMiddle={idx === 1} 
+                                        isStart={idx === 0} 
+                                        isEnd={idx === 2}
+                                        isError={isError}
+                                    />
                                 ))}
                             </div>
                         </div>
@@ -79,16 +98,17 @@ interface SlotPropsWithMiddle extends SlotProps {
     isMiddle?: boolean;
     isStart?: boolean;
     isEnd?: boolean;
+    isError?: boolean;
 }
 
 function Slot(props: SlotPropsWithMiddle) {
     return (
         <div
             className={cn(
-                'relative sm:w-11 sm:h-11 w-10 h-10 text-base',
+                'relative sm:w-[50px] sm:h-[50px] w-11 h-11 text-base',
                 'fcc',
-                'transition-all duration-100 text-secondary-400',
-                'border border-border-2',
+                'transition-all duration-100',
+                'border',
                 props.isMiddle
                     ? 'border-l-0 border-r-0'
                     : 'rounded-md',
@@ -102,27 +122,49 @@ function Slot(props: SlotPropsWithMiddle) {
                 'outline outline-0 outline-accent-foreground/20',
                 {
                     'ring-1 ring-primary-main border-transparent bg-primary-veryLight/20': props.isActive,
+                    'border-danger-300 bg-danger-50 text-danger-300': props.isError,
+                    'border-border-2 text-secondary-400': !props.isError
                 }
             )}
         >
             {props.char !== null && <div>{props.char}</div>}
-            {props.hasFakeCaret && <FakeCaret />}
+            {props.hasFakeCaret && <FakeCaret isError={props.isError} />}
         </div>
     )
 }
 
-function FakeCaret() {
+interface FakeCaretProps {
+    isError?: boolean;
+}
+
+function FakeCaret({ isError = false }: FakeCaretProps) {
     return (
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center animate-caret-blink">
-            <div className="w-px h-8 bg-transparent" />
+            <div className={cn(
+                "w-px h-8",
+                {
+                    'bg-danger-500': isError,
+                    'bg-transparent': !isError
+                }
+            )} />
         </div>
     )
 }
 
-function FakeDash() {
+interface FakeDashProps {
+    isError?: boolean;
+}
+
+function FakeDash({ isError = false }: FakeDashProps) {
     return (
         <div className="w-full fcc">
-            <div className="w-[5px] h-[2px] rounded-full bg-primary-main" />
+            <div className={cn(
+                "w-[5px] h-[2px] rounded-full",
+                {
+                    'bg-danger-300': isError,
+                    'bg-primary-main': !isError
+                }
+            )} />
         </div>
     )
 }

@@ -1,7 +1,8 @@
 "use client"
 import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
-// i18n
+import { useSearchParams } from 'next/navigation'
+// I18n
 import { useRouter } from '@/i18n/routing';
 import { useTranslations, useLocale } from 'next-intl';
 // Formik
@@ -12,12 +13,20 @@ import TextBox from '@/src/components/inputs/TextBox';
 import Button from '@/src/components/Button';
 import CountryPicker from './_components/CountryPicker';
 import ResponsiveDialogDrawer from '@/src/components/ResponsiveDialogDrawer';
+import { toastHandler } from '@/src/components/CustomToast';
 // Iconsax
 import { ArrowLeft, SearchNormal1 } from 'iconsax-reactjs';
 // Framer Motion
 import { motion } from 'framer-motion';
 // Static
 import { enums as countryData } from '@/static/countryData';
+// Services
+import checkMobile from '@/services/sso/checkMobile'
+// UUID
+import { v4 as uuidv4 } from 'uuid';
+// Functions
+import getRedirectParam from "@/functions/getRedirectParam"
+
 
 
 function Page() {
@@ -26,15 +35,33 @@ function Page() {
   const locale = useLocale();
   const isEnglish = locale === 'en';
   const [open, setOpen] = useState(false);
+  const [browserID, setBrowserID] = useState<string | null>(null);
   const [countrySelect, setCountrySelect] = useState("IR-98");
   const [isActiveSearch, setIsActiveSearch] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const selectedCountry = countryData.find((country) => country.id === countrySelect);
   const phoneNumberInputRef = useRef<HTMLInputElement>(null);
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('redirectTo');
+
+  function getOrGenerateBrowserID(): string {
+    const browserID = localStorage.getItem('BROWSER_ID');
+
+    const uuidV4Regex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+    if (browserID && uuidV4Regex.test(browserID)) {
+      return browserID;
+    }
+
+    const newID = uuidv4();
+    localStorage.setItem("BROWSER_ID", newID);
+    return newID;
+  }
 
   const validationSchema = Yup.object({
     phoneNumber: Yup.string()
-      .required(t('validation.required')) // Use dynamic translation
-      .matches(/^(0)?[0-9]{10}$/, t('validation.invalidPhone')), // Allow numbers with or without leading 0
+      .required(t('validation.required'))
+      .matches(/^(0)?[0-9]{10}$/, t('validation.invalidPhone')),
   });
 
   const formik = useFormik({
@@ -43,28 +70,52 @@ function Page() {
     },
     validationSchema,
     onSubmit: values => {
+      setIsLoading(true);
       let phoneNumber = values.phoneNumber;
       if (phoneNumber.startsWith('0')) {
-        phoneNumber = phoneNumber.slice(1); // Remove leading 0 if present
+        phoneNumber = phoneNumber.slice(1);
       }
-      const fullPhoneNumber = `${selectedCountry?.dial_code || ''}${phoneNumber}`;
+      const fullPhoneNumber = Number(phoneNumber);;
 
       if (typeof window !== 'undefined') {
-        sessionStorage.setItem('userPhone', fullPhoneNumber);
+        sessionStorage.setItem('userPhone', String(fullPhoneNumber));
+        sessionStorage.setItem('country', JSON.stringify(selectedCountry));
       }
 
       const data = {
-        phoneNumber: fullPhoneNumber,
-        country: selectedCountry
+        browser: navigator.userAgent,
+        browserID: browserID,
+        callbackURL: redirectTo ?? process.env.NEXT_PUBLIC_DEFAULT_REDIRECT_URL,
+        mobile: fullPhoneNumber,
+        country: selectedCountry,
       };
 
-      console.log(data);
-      router.push(`/auth/telegram`);
+      checkMobile(data)
+        .then(() => {
+          router.push(getRedirectParam("/auth/password", redirectTo));
+        })
+        .catch((err) => {
+          if (err.status === 404) {
+            if (err.data?.data === "telegram") {
+              router.push(getRedirectParam("/auth/telegram", redirectTo));
+            } else {
+              router.push(getRedirectParam("/auth/code", redirectTo));
+            }
+          }
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   });
 
   useEffect(() => {
     phoneNumberInputRef.current?.focus();
+    const id = getOrGenerateBrowserID();
+    if (id) setBrowserID(id);
+
+    const redirectValue = redirectTo ?? process.env.NEXT_PUBLIC_DEFAULT_REDIRECT_URL ?? '/';
+    sessionStorage.setItem('redirectTo', redirectValue);
   }, []);
 
   useEffect(() => {
@@ -152,6 +203,7 @@ function Page() {
           type='submit'
           iconPosition='end'
           icon={<ArrowLeft className={`${isEnglish && "rotate-180"}`} />}
+          loading={isLoading}
         />
       </form>
 

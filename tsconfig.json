@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -57,9 +61,22 @@
       ],
       "@/static/*": [
         "./src/static/*"
-      ]
+      ],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/CustomToast.tsx", "src/functions/toasHandler.js", "src/store/store.ts"],
-  "exclude": ["node_modules"]
+  "include": [ 
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/components/CustomToast.tsx",
+    "src/functions/toastHandler.ts",
+    "src/functions/toastHandler.js",
+    "src/store/store.ts",
+    "src/services/sso/checkAuthentication.js",
+    "src/utils/getFileIcon.tsx",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

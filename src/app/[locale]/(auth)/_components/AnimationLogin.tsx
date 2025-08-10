@@ -1,9 +1,13 @@
-import Image from 'next/image'
 import React from 'react'
+import Image from 'next/image'
+// Assets
 import images_1 from "@/public/mock-images/lampWithClosedWings.png"
 import images_2 from "@/public/mock-images/lampWithOpenWings.png"
+// Framer Motion
 import { motion } from 'framer-motion';
+// Next Intl
 import { useLocale } from 'next-intl';
+// Redux
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store'
 

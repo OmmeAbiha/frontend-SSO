@@ -7,7 +7,7 @@ import { store } from "@/store/store";
 // next intl
 import { NextIntlClientProvider, AbstractIntlMessages } from 'next-intl';
 // toast 
-import { Toaster } from 'react-hot-toast';
+import { CustomToastProvider } from "@/components/CustomToast";
 // logo logger
 import { logLogo } from "../functions/logLogo";
 
@@ -24,9 +24,11 @@ export default function Providers({ children, messages, locale }: ProvidersProps
   // Log the OmmeAbiha logo on component mount
   useEffect(() => {
     const descriptionLog = {
-      version: '1.0.0',
+      version: '0.1.0',
       origin: window.origin,
-      massage: 'hello developer!'
+      message: 'hello developer!',
+      themeColor: "red",
+      debug: true,
     };
     logLogo(descriptionLog);
   }, []);
@@ -34,7 +36,7 @@ export default function Providers({ children, messages, locale }: ProvidersProps
   return (
     <Provider store={store}>
       <NextIntlClientProvider timeZone="Asia/Tehran" messages={messages} locale={locale}>
-        <Toaster />
+        <CustomToastProvider />
         <ThemeProvider defaultTheme="light" enableSystem>
           <ThemeLogger />
           {children}
@@ -49,6 +51,6 @@ function ThemeLogger() {
   const { theme } = useTheme();
   useEffect(() => {
     console.log(theme);
-  }, [theme]); // فقط زمانی که theme تغییر کند لاگ می‌گیرد
+  }, [theme]);
   return null;
 }

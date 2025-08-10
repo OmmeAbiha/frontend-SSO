@@ -1,75 +1,110 @@
-import React, { useEffect, useState } from 'react'
-//react icons
-import { HiCheckCircle, HiXCircle, HiExclamationCircle, HiX } from 'react-icons/hi'
-import { toast } from 'react-hot-toast'
+"use client";
 
-interface CustomToastProps {
-    status: 'success' | 'error' | 'warning' | 'info';
-    title: string;
-    id: string;
-    duration: number;}
+// Sonner
+import { toast, Toaster } from "sonner";
+// Component
+import ContentToast from "./ContentToast";
+// Next Themes
+import { useTheme } from "next-themes";
 
-function CustomToast({ status, title, id, duration}: CustomToastProps) {
-    const [progress, setProgress] = useState(0);
-    const [isHovered, setIsHovered] = useState(false);
+type ToastOptions = {
+    duration?: number;
+    [key: string]: any;
+};
 
-    const getProgressBarColor = () => {
-        switch (status) {
-            case 'success':
-                return 'bg-status-success';
-            case 'error':
-                return 'bg-danger-400';
-            case 'warning':
-                return 'bg-status-warning';
-            case 'info':
-                return 'bg-status-info';
-            default:
-                return 'bg-blue-500';
-        }
-    };
-
-    useEffect(() => {
-        if (!isHovered) {
-            const interval = setInterval(() => {
-                setProgress((prev) => {
-                    const increment = 100 / (duration / 50);
-                    if (prev >= 100) {
-                        clearInterval(interval);
-                        toast.dismiss(id);
-                        return 100;
-                    }
-                    return prev + increment;
-                });
-            }, 50);
-            return () => clearInterval(interval);
-        }
-    }, [isHovered, id, duration]);
+export const CustomToastProvider = () => {
+    const { theme } = useTheme();
 
     return (
-        <div
-            className={`rounded-md p-4 flex flex-col justify-between w-80 bg-toast text-toast-foreground mr-5 mb-4`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            <div className="flex justify-between items-start mb-2">
-                <div className="fcc">
-                    <div className="flex-shrink-0 ml-1">
-                        {status === 'success' && <HiCheckCircle className="h-5 w-5 text-status-success" aria-hidden="true" />}
-                        {status === 'warning' && <HiExclamationCircle className="h-5 w-5 text-status-warning" aria-hidden="true" />}
-                        {status === 'error' && <HiXCircle className="h-5 w-5 text-danger-400" aria-hidden="true" />}
-                        {status === 'info' && <HiExclamationCircle className="h-5 w-5 text-status-info" aria-hidden="true" />}
-                    </div>
-                    <div className='text-sm'>{title}</div>
-                </div>
-                <button onClick={() => toast.dismiss(id)}>
-                    <HiX className="h-[14px] w-[14px]" aria-hidden="true" />
-                </button>
-            </div>
-            <div className="h-1 bg-gray-200 mt-2 rounded-xl">
-                <div className={`h-full rounded-xl ${getProgressBarColor()}`} style={{ width: `${progress}%` }}></div>
-            </div>
-        </div>
-    )
-}
+        <Toaster
+            position="top-right"
+            richColors
+            // closeButton
+            expand={false}
+            visibleToasts={5}
+            invert={true}
+            // offset={16}
+            // gap={20}
+            swipeDirections={['left', 'right']}
+            theme={theme as "light" | "dark" | "system" | undefined}
+            toastOptions={{
+                style: {
+                    fontSize: "0.875rem",
+                },
+            }}
+        />
+    );
+};
 
-export default CustomToast
+type ToastType = "success" | "error" | "warning" | "info" | "loading" | "custom";
+
+export const toastHandler = (
+    type: ToastType,
+    message: string,
+    options?: ToastOptions
+) => {
+
+    const defaultDuration = 5000;
+    const customDuration = options?.duration ?? defaultDuration;
+
+    const renderContentToast = (status: ToastType) =>
+        toast.custom(
+            (t) => (
+                <ContentToast
+                    status={status}
+                    title={message}
+                    id={t}
+                    duration={customDuration}
+                    toast={toast}
+                />
+            ),
+            { duration: customDuration }
+        );
+
+    switch (type) {
+        case "success":
+        case "error":
+        case "warning":
+        case "info":
+            renderContentToast(type);
+            break;
+        // case "loading":
+        //     toast.loading(message, { ...options, duration: customDuration });
+        //     break;
+        // case "custom":
+        //     toast.custom(
+        //         (t) => (
+        //             <div className="bg-orange-300 p-4 rounded-md text-white">
+        //                 <h1 className="font-bold mb-2">Custom toast</h1>
+        //                 <button
+        //                     className="bg-white text-orange-300 px-2 py-1 rounded"
+        //                     onClick={() => toast.dismiss(t)}
+        //                 >
+        //                     Dismiss
+        //                 </button>
+        //             </div>
+        //         ),
+        //         { duration: customDuration }
+        //     );
+        //     break;
+        default:
+            toast(message, { ...options, duration: customDuration });
+    }
+};
+
+export const handleApiToast = (response: any, successMessage?: string) => {
+    if (response?.status === 200 || response?.status === 201) {
+        toastHandler(
+            "success",
+            successMessage || "عملیات با موفقیت انجام شد",
+            { duration: 3000 }
+        );
+        return true;
+    } else {
+        const errorMessage =
+            response?.data?.message ||
+            "خطایی رخ داده است. لطفاً مجدداً تلاش کنید";
+        toastHandler("error", errorMessage, { duration: 5000 });
+        return false;
+    }
+};

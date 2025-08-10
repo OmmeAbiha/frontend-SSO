@@ -1,3 +1,3 @@
-import { attachToken, createApiInstance } from "./APIRepositories";
+import { createApiInstance } from "./APIRepositories";
 
-export const person = attachToken(createApiInstance());
+export const sso = createApiInstance(process.env.NEXT_PUBLIC_BACKEND_SSO);

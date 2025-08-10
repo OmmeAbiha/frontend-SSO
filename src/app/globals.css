@@ -6,21 +6,33 @@
   [data-theme="light"] {
     --background: 0 0% 100%;
     --foreground: 0 0% 10%;
-    
-    --primary-veryLight: 42 100% 88%;  /* #FFF1C2 */
-    --primary-light:     42 100% 81%;  /* #FFE19C */
-    --primary:           42 98% 53%;   /* #FDB713 */
-    --primary-medium:    42 89% 54%;   /* #EFB226 */
-    --primary-dark:      42 94% 46%;   /* #E3A107 */
+
+    --primary-veryLight: 42 100% 88%;
+    /* #FFF1C2 */
+    --primary-light: 42 100% 81%;
+    /* #FFE19C */
+    --primary: 42 98% 53%;
+    /* #FDB713 */
+    --primary-medium: 42 89% 54%;
+    /* #EFB226 */
+    --primary-dark: 42 94% 46%;
+    /* #E3A107 */
     --primary-foreground: 0 0% 10%;
 
-    --secondary-100: 208 100% 97%;  /* #F2F9FF */
-    --secondary-200: 207 77% 88%;   /* #C9E3F8 */
-    --secondary-300: 208 76% 61%;   /* #51A2E7 */
-    --secondary-400: 207 100% 43%;  /* #0077DB */
-    --secondary-500: 207 100% 31%;  /* #00569E */
-    --secondary-600: 207 100% 23%;  /* #004075 */
-    --secondary-700: 207 100% 10%;  /* #001C33 */
+    --secondary-100: 208 100% 97%;
+    /* #F2F9FF */
+    --secondary-200: 207 77% 88%;
+    /* #C9E3F8 */
+    --secondary-300: 208 76% 61%;
+    /* #51A2E7 */
+    --secondary-400: 207 100% 43%;
+    /* #0077DB */
+    --secondary-500: 207 100% 31%;
+    /* #00569E */
+    --secondary-600: 207 100% 23%;
+    /* #004075 */
+    --secondary-700: 207 100% 10%;
+    /* #001C33 */
 
     --tertiary-100: 0 0% 96%;
     --tertiary-200: 0 0% 93%;
@@ -32,38 +44,66 @@
     --tertiary-800: 0 0% 26%;
     --tertiary-900: 0 0% 13%;
 
-    --success-100: 135 62% 95%;  /* #EAFAEE */
-    --success-300: 134 61% 70%;  /* #84E199 */
-    --success-400: 134 61% 41%;  /* #28A745 */
-    --success-500: 134 61% 30%;  /* #1E7B33 */
-    --success-700: 134 61% 17%;  /* #11461D */
+    --success-100: 135 62% 95%;
+    /* #EAFAEE */
+    --success-300: 134 61% 70%;
+    /* #84E199 */
+    --success-400: 134 61% 41%;
+    /* #28A745 */
+    --success-500: 134 61% 30%;
+    /* #1E7B33 */
+    --success-700: 134 61% 17%;
+    /* #11461D */
 
-    --warning-100: 37 100% 95%;  /* #FFF5E5 */
-    --warning-300: 36 100% 76%;  /* #FFCE85 */
-    --warning-400: 36 100% 50%;  /* #FF9800 */
-    --warning-500: 33 100% 33%;  /* #A85D00 */
-    --warning-700: 31 100% 15%;  /* #4D2800 */
+    --warning-100: 37 100% 95%;
+    /* #FFF5E5 */
+    --warning-300: 36 100% 76%;
+    /* #FFCE85 */
+    --warning-400: 36 100% 50%;
+    /* #FF9800 */
+    --warning-500: 33 100% 33%;
+    /* #A85D00 */
+    --warning-700: 31 100% 15%;
+    /* #4D2800 */
 
-    --info-100: 189 77% 95%;  /* #E8F9FC */
-    --info-300: 188 78% 79%;  /* #A0E8F3 */
-    --info-400: 188 78% 41%;  /* #17A2B8 */
-    --info-500: 190 78% 27%;  /* #0F697A */
-    --info-700: 189 77% 12%;  /* #072F36 */
+    --info-100: 189 77% 95%;
+    /* #E8F9FC */
+    --info-300: 188 78% 79%;
+    /* #A0E8F3 */
+    --info-400: 188 78% 41%;
+    /* #17A2B8 */
+    --info-500: 190 78% 27%;
+    /* #0F697A */
+    --info-700: 189 77% 12%;
+    /* #072F36 */
 
-    --danger-100: 355 73% 97%;  /* #FDF2F3 */
-    --danger-300: 354 70% 83%;  /* #F2B5BB */
-    --danger-400: 354 70% 54%;  /* #DC3545 */
-    --danger-500: 354 71% 31%;  /* #871722 */
-    --danger-700: 354 71% 15%;  /* #410B10 */
+    --danger-100: 355 73% 97%;
+    /* #FDF2F3 */
+    --danger-300: 354 70% 83%;
+    /* #F2B5BB */
+    --danger-400: 354 70% 54%;
+    /* #DC3545 */
+    --danger-500: 354 71% 31%;
+    /* #871722 */
+    --danger-700: 354 71% 15%;
+    /* #410B10 */
 
-    --border-cta-naturalDefault:       210 9% 32%;   /* #4B5259 */
-    --border-cta-naturalDarkSelected:  210 9% 32%;   /* #4B5259 */
-    --border-cta-naturalFocus:         210 9% 18%;   /* #2B2F33 */
-    --border-cta-secondaryDisabled:    207 77% 88%;  /* #C9E3F8 */
-    --border-cta-secondaryLoading:     207 77% 88%;  /* #C9E3F8 */
-    --border-cta-secondaryDefault:     207 100% 43%; /* #0077DB */
-    --border-cta-secondarySelected:    207 100% 43%; /* #0077DB */
-    --border-cta-secondaryFocus:       207 100% 31%; /* #00569E */
+    --border-cta-naturalDefault: 210 9% 32%;
+    /* #4B5259 */
+    --border-cta-naturalDarkSelected: 210 9% 32%;
+    /* #4B5259 */
+    --border-cta-naturalFocus: 210 9% 18%;
+    /* #2B2F33 */
+    --border-cta-secondaryDisabled: 207 77% 88%;
+    /* #C9E3F8 */
+    --border-cta-secondaryLoading: 207 77% 88%;
+    /* #C9E3F8 */
+    --border-cta-secondaryDefault: 207 100% 43%;
+    /* #0077DB */
+    --border-cta-secondarySelected: 207 100% 43%;
+    /* #0077DB */
+    --border-cta-secondaryFocus: 207 100% 31%;
+    /* #00569E */
 
     --border-1: rgba(0, 0, 0, .12);
     --border-2: rgba(0, 0, 0, .2);
@@ -80,23 +120,37 @@
   }
 
   [data-theme="dark"] {
-    --background: 213 25% 14%;        /* نزدیک به #1A1D20 */
-    --foreground: 0 0% 100%;         /* سفید */
+    --background: 213 25% 14%;
+    /* نزدیک به #1A1D20 */
+    --foreground: 0 0% 100%;
+    /* سفید */
 
-    --primary-veryLight: 42 100% 22%;  /* #4D3B00 */
-    --primary-light:     42 100% 35%;  /* #7A5F00 */
-    --primary:           42 98% 53%;   /* #FDB713 */
-    --primary-medium:    42 89% 60%;   /* #FDC740 */
-    --primary-dark:      42 94% 46%;   /* #E3A107 */
+    --primary-veryLight: 42 100% 22%;
+    /* #4D3B00 */
+    --primary-light: 42 100% 35%;
+    /* #7A5F00 */
+    --primary: 42 98% 53%;
+    /* #FDB713 */
+    --primary-medium: 42 89% 60%;
+    /* #FDC740 */
+    --primary-dark: 42 94% 46%;
+    /* #E3A107 */
     --primary-foreground: 0 0% 10%;
 
-    --secondary-100: 208 100% 15%;   /* #0B2333 */
-    --secondary-200: 207 77% 23%;    /* #1A3B55 */
-    --secondary-300: 208 76% 40%;    /* #3171A6 */
-    --secondary-400: 207 100% 53%;   /* #0090FF */
-    --secondary-500: 207 100% 61%;   /* #1DA1F2 */
-    --secondary-600: 207 100% 75%;   /* #6AC7FF */
-    --secondary-700: 207 100% 88%;   /* #C9E3F8 */
+    --secondary-100: 208 100% 15%;
+    /* #0B2333 */
+    --secondary-200: 207 77% 23%;
+    /* #1A3B55 */
+    --secondary-300: 208 76% 40%;
+    /* #3171A6 */
+    --secondary-400: 207 100% 53%;
+    /* #0090FF */
+    --secondary-500: 207 100% 61%;
+    /* #1DA1F2 */
+    --secondary-600: 207 100% 75%;
+    /* #6AC7FF */
+    --secondary-700: 207 100% 88%;
+    /* #C9E3F8 */
 
     --tertiary-100: 0 0% 13%;
     --tertiary-200: 0 0% 18%;
@@ -108,44 +162,66 @@
     --tertiary-800: 0 0% 88%;
     --tertiary-900: 0 0% 93%;
 
-    --success-100: 135 62% 15%;  /* #0D2611 */
-    --success-300: 134 61% 30%;  /* #1E7B33 */
-    --success-400: 134 61% 41%;  /* #28A745 */
-    --success-500: 134 61% 52%;  /* #4EC166 */
-    --success-700: 134 61% 70%;  /* #84E199 */
-  
-    --warning-100: 37 100% 15%;  /* #4D3300 */
-    --warning-300: 36 100% 33%;  /* #A85D00 */
-    --warning-400: 36 100% 50%;  /* #FF9800 */
-    --warning-500: 33 100% 66%;  /* #FFBC4D */
-    --warning-700: 31 100% 76%;  /* #FFD999 */
-  
-    --info-100: 189 77% 15%;  /* #10363D */
-    --info-300: 188 78% 27%;  /* #0F697A */
-    --info-400: 188 78% 41%;  /* #17A2B8 */
-    --info-500: 190 78% 60%;  /* #58D0E4 */
-    --info-700: 189 77% 79%;  /* #A0E8F3 */
-  
-    --danger-100: 355 73% 15%;  /* #410B10 */
-    --danger-300: 354 70% 31%;  /* #871722 */
-    --danger-400: 354 70% 54%;  /* #DC3545 */
-    --danger-500: 354 71% 70%;  /* #F28A94 */
-    --danger-700: 354 71% 83%;  /* #FBCED3 */
-  
-    --border-cta-primaryFocus:         210 9% 60%;  /* #99A0A7 */
-    --border-cta-naturalDefault:       210 9% 60%;
-    --border-cta-naturalDarkSelected:  210 9% 60%;
-    --border-cta-naturalFocus:         210 9% 75%;  /* #BCC1C6 */
-  
-    --border-cta-secondaryDisabled:    207 77% 23%;
-    --border-cta-secondaryLoading:     207 77% 23%;
-    --border-cta-secondaryDefault:     207 100% 53%;
-    --border-cta-secondarySelected:    207 100% 53%;
-    --border-cta-secondaryFocus:       207 100% 61%;
-  
+    --success-100: 135 62% 15%;
+    /* #0D2611 */
+    --success-300: 134 61% 30%;
+    /* #1E7B33 */
+    --success-400: 134 61% 41%;
+    /* #28A745 */
+    --success-500: 134 61% 52%;
+    /* #4EC166 */
+    --success-700: 134 61% 70%;
+    /* #84E199 */
+
+    --warning-100: 37 100% 15%;
+    /* #4D3300 */
+    --warning-300: 36 100% 33%;
+    /* #A85D00 */
+    --warning-400: 36 100% 50%;
+    /* #FF9800 */
+    --warning-500: 33 100% 66%;
+    /* #FFBC4D */
+    --warning-700: 31 100% 76%;
+    /* #FFD999 */
+
+    --info-100: 189 77% 15%;
+    /* #10363D */
+    --info-300: 188 78% 27%;
+    /* #0F697A */
+    --info-400: 188 78% 41%;
+    /* #17A2B8 */
+    --info-500: 190 78% 60%;
+    /* #58D0E4 */
+    --info-700: 189 77% 79%;
+    /* #A0E8F3 */
+
+    --danger-100: 355 73% 15%;
+    /* #410B10 */
+    --danger-300: 354 70% 31%;
+    /* #871722 */
+    --danger-400: 354 70% 54%;
+    /* #DC3545 */
+    --danger-500: 354 71% 70%;
+    /* #F28A94 */
+    --danger-700: 354 71% 83%;
+    /* #FBCED3 */
+
+    --border-cta-primaryFocus: 210 9% 60%;
+    /* #99A0A7 */
+    --border-cta-naturalDefault: 210 9% 60%;
+    --border-cta-naturalDarkSelected: 210 9% 60%;
+    --border-cta-naturalFocus: 210 9% 75%;
+    /* #BCC1C6 */
+
+    --border-cta-secondaryDisabled: 207 77% 23%;
+    --border-cta-secondaryLoading: 207 77% 23%;
+    --border-cta-secondaryDefault: 207 100% 53%;
+    --border-cta-secondarySelected: 207 100% 53%;
+    --border-cta-secondaryFocus: 207 100% 61%;
+
     --border-1: rgba(255, 255, 255, 0.12);
     --border-2: rgba(255, 255, 255, 0.2);
-  
+
     --shadow-sm: 0 1px 1px -1px rgba(0, 0, 0, 0.4);
     --shadow-md: 0 2px 5px -1px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 4px 6px 0 rgba(0, 0, 0, 0.4);
@@ -153,9 +229,11 @@
     --shadow-bottom-sheet: 0 -20px 30px -5px rgba(0, 0, 0, 0.5);
     --shadow-nav-bar: 0 -1px 0 0 rgba(0, 0, 0, 0.3), 0 -2px 8px 8px rgba(0, 0, 0, 0.2);
     --shadow-inner: inset 0 2px 4px 0 rgba(255, 255, 255, 0.05);
-  
+
     --radius: 0.5rem;
-  } /* Ensure this closing brace exists */
+  }
+
+  /* Ensure this closing brace exists */
 }
 
 [data-theme='light'] input:-webkit-autofill {
@@ -168,10 +246,47 @@
   -webkit-text-fill-color: white !important;
 }
 
+::selection {
+  background-color: hsl(var(--primary));
+  color: white;
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background-color: hsl(var(--primary));
+  color: white;
+  text-shadow: none;
+}
+
+::-webkit-selection {
+  background-color: hsl(var(--primary));
+  color: white;
+  text-shadow: none;
+}
+
+input[type='password']::-ms-reveal,
+input[type='password']::-ms-clear {
+  display: none;
+}
+
+input[type='password']::-webkit-credentials-auto-fill-button {
+  display: none;
+}
+
+input[type='password']::-webkit-textfield-decoration-container {
+  display: none !important;
+}
+
+input[type='password']::-webkit-clear-button,
+input[type='password']::-webkit-inner-spin-button {
+  display: none;
+}
+
 @layer base {
   * {
     @apply border-border-cta-natural scroll_custom;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -183,6 +298,7 @@
     align-items: center;
     justify-content: center;
   }
+
   /* Chrome, Safari, Opera */
   .hideScroll::-webkit-scrollbar {
     display: none;

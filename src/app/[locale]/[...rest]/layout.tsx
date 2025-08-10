@@ -1,6 +1,8 @@
-import { notFound } from 'next/navigation';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ReactNode } from 'react';
+import { notFound } from 'next/navigation';
+// Next Intl
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+// I18n
 import { routing } from '@/i18n/routing';
 
 type Props = {

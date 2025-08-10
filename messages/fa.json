@@ -54,19 +54,20 @@
       "pleaseRegisterThenReturnInfo": "ابتدا در ربات بله ثبت‌نام کنید. سپس به این صفحه بازگردید و کد دریافتی از ربات را وارد نمایید.",
       "titleInfo": "توجه",
       "getCodeViaSms": "دریافت کد ورود از طریق پیامک",
-      "getCodeViaTelegram": "دریافت کد ورود از طریق تلگرام"
+      "resendCode": "برای دریافت مجدد کد وارد ربات بله شوید",
+      "resendIn": "{time} مانده تا دریافت مجدد کد تایید"
     },
     "code": {
       "enterInfo": "کد فرستاده شده برای {phoneNumber} را وارد کنید.",
       "OTPConfirmationBtn": "تایید",
-      "getCodeViaTelegram": "دریافت کد ورود از طریق تلگرام",
-      "getCodeViaBale": "دریافت کد ورود از طریق بله"
+      "getCodeViaBale": "دریافت کد ورود از طریق بله",
+      "resendCode": "ارسال مجدد کد تایید",
+      "resendIn": "{time} مانده تا دریافت مجدد کد تایید"
     },
     "password": {
       "passwordLabel": "رمز عبور",
       "forgotPassword": "رمزعبور را فراموش کردید؟",
       "continue": "ادامه",
-      "telegramOption": "دریافت کد ورود از طریق تلگرام",
       "smsOption": "دریافت کد ورود از طریق پیامک",
       "baleOption": "دریافت کد ورود از طریق بله",
       "validation": {
@@ -79,10 +80,36 @@
         "validChars": "رمز عبور فقط باید شامل حروف انگلیسی و کاراکترهای مجاز باشد"
       }
     },
+    "changePassword": {
+      "newPasswordLabel": "رمز عبور جدید",
+      "confirmNewPasswordLabel": "تکرار رمز عبور جدید",
+      "continue": "بازیابی رمزعبور",
+      "passwordStrengthHint": "برای حساب‌کاربری خود یک رمزعبور قوی انتخاب کنید.",
+      "validation": {
+        "required": "رمز عبور الزامی است",
+        "minLength": "رمز عبور باید حداقل ۸ کاراکتر باشد",
+        "uppercase": "رمز عبور باید حداقل یک حرف بزرگ داشته باشد",
+        "lowercase": "رمز عبور باید حداقل یک حرف کوچک داشته باشد",
+        "number": "رمز عبور باید حداقل یک عدد داشته باشد",
+        "specialChar": "رمز عبور باید حداقل یک کاراکتر خاص داشته باشد",
+        "validChars": "رمز عبور فقط باید شامل حروف انگلیسی و کاراکترهای مجاز باشد",
+        "passwordsMustMatch": "رمز عبور و تکرار آن باید یکسان باشند"
+      }
+    },
     "validation": {
       "required": "این فیلد الزامی است",
       "invalidPhone": "شماره موبایل باید حداکثر ۱۱ رقم باشد",
       "invalidCode": "کد وارد شده معتبر نیست"
+    }
+  },
+  "toast": {
+    "status": {
+      "success": "موفقیت",
+      "error": "خطا",
+      "warning": "هشدار",
+      "info": "اطلاع",
+      "loading": "در حال بارگذاری",
+      "custom": "سفارشی"
     }
   }
 }

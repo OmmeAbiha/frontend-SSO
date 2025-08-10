@@ -18,20 +18,17 @@ const TextBox = forwardRef<HTMLInputElement, TextBoxProps>(
       <div className={`flex flex-col relative ${className}`}>
         <label
           htmlFor={rest.id || 'customTextBox'}
-          className={`absolute bg-background rounded-sm px-1 -top-2 ${
-            isEnglish ? 'left-3' : 'right-3'
-          } pointer-events-none transition-all duration-500 font-medium text-[11px] ${
-            error && touched ? 'text-danger-400' : 'text-tertiary-600'
-          }`}
+          className={`absolute bg-background rounded-sm px-1 -top-2 ${isEnglish ? 'left-3' : 'right-3'
+            } pointer-events-none transition-all duration-500 font-medium text-[11px] ${error && touched ? 'text-danger-400' : 'text-tertiary-600'
+            }`}
         >
           {label}
         </label>
         <input
           ref={ref}
           id={rest.id || 'customTextBox'}
-          className={`h-12 py-2 px-3 border rounded-lg caret-primary-medium focus:outline-none text-sm ${
-            error && touched ? 'border-danger-400' : 'border-border-2 focus:border-primary-main'
-          } bg-background ${className}`}
+          className={`h-12 py-2 px-3 text-tertiary-700 border rounded-lg caret-primary-medium focus:outline-none text-sm appearance-none ${error && touched ? 'border-danger-400' : 'border-border-2 focus:border-primary-main'
+            } bg-background ${className}`}
           {...rest}
         />
         <div className="mt-1">

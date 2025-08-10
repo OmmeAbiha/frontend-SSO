@@ -1,9 +1,13 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
+// Iconsax Reactjs
 import { Moon, Sun1, Monitor, ArrowDown2 } from 'iconsax-reactjs';
+// Next Themes
 import { useTheme } from 'next-themes';
+// Frame Motion
 import { motion, AnimatePresence } from 'framer-motion';
+// Next Intl
 import { useTranslations } from 'next-intl';
 
 type DarkModeToggleProps = {
