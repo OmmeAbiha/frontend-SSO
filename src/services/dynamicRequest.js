@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-// import toastHandler from '@/functions/toastHandler';
+import { toastHandler } from '@/src/components/CustomToast';
 import { redirect } from 'next/navigation';
 
 
@@ -51,17 +51,17 @@ const handleRequestError = (error) => {
 
     switch (response.status) {
         case 500:
-            // toastHandler('err', 'خطایی در ارتباط با سرور.');
+            toastHandler('error', 'خطایی در ارتباط با سرور.');
             break;
         case 422:
-            // toastHandler('err', 'اطلاعات ارسالی صحیح نیست.');
+            toastHandler('error', 'اطلاعات ارسالی صحیح نیست.');
             break;
         case 401:
             Cookies.remove('TOKEN', { domain: `.${process.env.NEXT_PUBLIC_REPORT_FRONT_DOMAIN}`, path: '/' });
             redirect(`/${LOCALE}/auth`);
         case 400:
             if (response.data.message) {
-                // toastHandler('err', response.data.message);
+                toastHandler('error', response.data.message);
             }
             break;
         default:

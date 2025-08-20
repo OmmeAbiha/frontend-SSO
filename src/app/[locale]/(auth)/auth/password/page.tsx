@@ -9,6 +9,7 @@ import * as Yup from 'yup';
 // Components
 import Button from '@/src/components/Button';
 import CustomLink from '@/src/components/CustomLink';
+import { toastHandler } from '@/src/components/CustomToast';
 // Iconsax
 import { ArrowLeft, ArrowLeft2, SmsTracking } from 'iconsax-reactjs';
 import { useSearchParams } from 'next/navigation';
@@ -57,16 +58,14 @@ function Page() {
                 password: values.password,
             };
 
-            console.log(data)
-
             checkPassword(data)
                 .then((res) => {
                     window.location.href = `${res.data.redirectURL}?tempToken=${res.data.data.jwtBrowser}`;
                 })
                 .catch((err) => {
                     setIsLoading(false)
-                    if (err.status === 400) {
-
+                    if (err.status === 404) {
+                        toastHandler('error', 'رمز عبور شما درست نمی باشد.');
                     }
                 })
         }

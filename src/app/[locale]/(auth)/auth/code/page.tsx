@@ -111,7 +111,8 @@ function Page() {
   };
 
   const handleResendOtp = async () => {
-    const res = await checkMobile(getOtpRequestData());
+    // const res = await checkMobile(getOtpRequestData());
+    const res = await sendOTPForRegisteredUser(getOtpRequestData());
     return res;
   };
 
