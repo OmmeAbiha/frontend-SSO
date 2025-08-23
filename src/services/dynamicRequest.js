@@ -57,7 +57,7 @@ const handleRequestError = (error) => {
             toastHandler('error', 'اطلاعات ارسالی صحیح نیست.');
             break;
         case 401:
-            Cookies.remove('TOKEN', { domain: `.${process.env.NEXT_PUBLIC_REPORT_FRONT_DOMAIN}`, path: '/' });
+            Cookies.remove('AuthToken', { domain: `.${process.env.NEXT_PUBLIC_REPORT_FRONT_DOMAIN}`, path: '/' });
             redirect(`/${LOCALE}/auth`);
         case 400:
             if (response.data.message) {

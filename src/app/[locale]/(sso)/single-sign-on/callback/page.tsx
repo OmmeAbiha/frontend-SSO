@@ -15,16 +15,15 @@ function Page() {
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('redirectTo');
   const locale = useLocale();
+  
 
   useEffect(() => {
     const runSSO = async () => {
-      const TOKEN = Cookies.get('TOKEN');
+      const TOKEN = Cookies.get('AuthToken');
       const browserID = localStorage.getItem('BROWSER_ID');
       const browserName = navigator.userAgent;
 
-      console.log(navigator.userAgent)
-
-      if (!TOKEN || !browserID || !browserName) {
+      if (!browserID || !browserName) {
         window.location.href = getRedirectParam(`/${locale}/auth`, redirectTo);
         return;
       }
@@ -32,15 +31,13 @@ function Page() {
       const data = {
         browser: browserName,
         browserID: browserID,
-        callbackURL: redirectTo,
+        callbackURL: redirectTo ?? process.env.NEXT_PUBLIC_DEFAULT_REDIRECT_URL,
         token: TOKEN,
       };
 
       checkAuthentication(data)
         .then((res) => {
-          console.log(res.data.data)
-          const tempToken = res.data.data;
-          window.location.href = `${redirectTo}?tempToken=${tempToken}`;
+          window.location.href = `${res.data.redirectURL}?tempToken=${res.data.data}`;
         })
         .catch(() => {
           window.location.href = getRedirectParam(`/${locale}/auth`, redirectTo);
