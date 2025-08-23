@@ -1,13 +1,13 @@
-type FormatPriceOptions = {
+type priceFormatOptions = {
     thousandSeparator?: string;
     decimalSeparator?: string;
     decimalPlaces?: number;
     showDecimalIfZero?: boolean;
 };
 
-function formatPrice(
+function priceFormat(
     price: number | string | null | undefined,
-    options: FormatPriceOptions = {}
+    options: priceFormatOptions = {}
 ): string {
     const {
         thousandSeparator = ",",
@@ -40,4 +40,4 @@ function formatPrice(
     return integerPart;
 }
 
-export default formatPrice;
+export default priceFormat;
