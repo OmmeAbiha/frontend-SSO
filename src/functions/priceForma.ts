@@ -24,11 +24,16 @@ function formatPrice(
 
     const fixedNum = num.toFixed(decimalPlaces);
 
-    let [integerPart, decimalPart] = fixedNum.split(".");
+    const [rawInteger, decimalPart] = fixedNum.split(".");
+    let integerPart = rawInteger;
 
     integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, thousandSeparator);
 
-    if (decimalPlaces > 0 && (showDecimalIfZero || decimalPart !== "0".repeat(decimalPlaces))) {
+    if (
+        decimalPlaces > 0 &&
+        decimalPart !== undefined &&
+        (showDecimalIfZero || decimalPart !== "0".repeat(decimalPlaces))
+    ) {
         return `${integerPart}${decimalSeparator}${decimalPart}`;
     }
 

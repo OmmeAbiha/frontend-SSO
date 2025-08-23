@@ -9,7 +9,7 @@ import { useTheme } from "next-themes";
 
 type ToastOptions = {
     duration?: number;
-    [key: string]: any;
+    [key: string]: unknown;
 };
 
 export const CustomToastProvider = () => {
@@ -92,8 +92,10 @@ export const toastHandler = (
     }
 };
 
-export const handleApiToast = (response: any, successMessage?: string) => {
-    if (response?.status === 200 || response?.status === 201) {
+export const handleApiToast = (response: unknown, successMessage?: string) => {
+    // Type guard for expected response shape
+    const res = response as { status?: number; data?: { message?: string } };
+    if (res?.status === 200 || res?.status === 201) {
         toastHandler(
             "success",
             successMessage || "عملیات با موفقیت انجام شد",
@@ -102,7 +104,7 @@ export const handleApiToast = (response: any, successMessage?: string) => {
         return true;
     } else {
         const errorMessage =
-            response?.data?.message ||
+            res?.data?.message ||
             "خطایی رخ داده است. لطفاً مجدداً تلاش کنید";
         toastHandler("error", errorMessage, { duration: 5000 });
         return false;

@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import React, { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'next/navigation';
 // Components
@@ -41,7 +42,7 @@ function Page() {
   });
 
   // Helper to get OTP request data
-  const getOtpRequestData = (extra: Record<string, any> = {}) => {
+  const getOtpRequestData = (extra: Record<string, unknown> = {}) => {
     const mobile = sessionStorage.getItem('userPhone');
     const country = sessionStorage.getItem('country')!;
     const browserID = localStorage.getItem('BROWSER_ID');
@@ -59,7 +60,7 @@ function Page() {
     dispatch(clearOtpLength());
     const savedPhone = sessionStorage.getItem('userPhone')?.replaceAll("+98", "0");
     if (savedPhone) setPhoneNumber(savedPhone);
-  }, []);
+  }, [dispatch]);
 
   const handleOtpForgetPasswordSubmit = (val?: string) => {
     const otpValue = val ?? otp;

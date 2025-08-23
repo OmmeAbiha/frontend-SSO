@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from '@/i18n/routing';
 // Next Intl

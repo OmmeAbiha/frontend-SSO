@@ -1,10 +1,12 @@
 "use client"
 
-import { useRouter } from '@/i18n/routing'
 import React, { useEffect, useRef } from "react";
+// OGL
 import { Renderer, Camera, Geometry, Program, Mesh } from "ogl";
+// Next Intl
 import { useTranslations } from 'next-intl';
-import Button from './Button';
+// Components
+import GoBackButton from './GoBackButton';
 
 interface ParticlesProps {
   particleCount?: number;
@@ -249,7 +251,6 @@ const Particles: React.FC<ParticlesProps> = ({
 };
 
 function NotFoundPage() {
-  const router = useRouter()
   const t = useTranslations('NotFoundPage');
 
   return (
@@ -267,11 +268,7 @@ function NotFoundPage() {
       <div className='absolute fcc flex-col pointer-events-none'>
         <h1 className='font-extrabold text-8xl md:text-[10rem] '>{t('title')}</h1>
         <p className='font-bold text-xl md:text-2xl mb-10'>{t('description')}</p>
-        <Button
-          title={t('backButton')}
-          className='pointer-events-auto w-auto'
-          onClick={() => router.back()}
-        />
+        <GoBackButton label={t('backButton')} />
       </div>
     </div>
   )

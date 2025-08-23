@@ -24,9 +24,9 @@ type DarkModeToggleProps = {
 const themeOrder: Array<'light' | 'dark' | 'system'> = ['light', 'dark', 'system'];
 
 const themeIcons = {
-  light: (size: number, icons: any) => icons?.light ?? <Sun1 size={size} />,
-  dark: (size: number, icons: any) => icons?.dark ?? <Moon size={size} />,
-  system: (size: number, icons: any) => icons?.system ?? <Monitor size={size} />,
+  light: (size: number, icons: { light?: React.ReactNode }) => icons?.light ?? <Sun1 size={size} />,
+  dark: (size: number, icons: { dark?: React.ReactNode }) => icons?.dark ?? <Moon size={size} />,
+  system: (size: number, icons: { system?: React.ReactNode }) => icons?.system ?? <Monitor size={size} />,
 };
 
 const dropdownVariants = {

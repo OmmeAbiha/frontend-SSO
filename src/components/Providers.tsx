@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
+// Next Themes
 import { ThemeProvider, useTheme } from "next-themes";
+// Redux
 import { Provider } from "react-redux";
 import { store } from "@/store/store";
 // next intl
@@ -39,7 +41,9 @@ export default function Providers({ children, messages, locale }: ProvidersProps
         <CustomToastProvider />
         <ThemeProvider defaultTheme="light" enableSystem>
           <ThemeLogger />
-          {children}
+          <Suspense>
+            {children}
+          </Suspense>
         </ThemeProvider>
       </NextIntlClientProvider>
     </Provider>

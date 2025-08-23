@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useEffect, useRef, useState } from 'react'
 // Components
@@ -16,7 +16,6 @@ import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'next/navigation';
 // Services
 import verifyOTP from '@/services/sso/verifyOTP'
-import checkMobile from '@/services/sso/checkMobile'
 import sendOTPForRegisteredUser from '@/services/sso/sendOTPForRegisteredUser'
 import passwordChangeCheckMobile from '@/services/sso/passwordChangeCheckMobile'
 import passwordChangeVerifyOTP from '@/services/sso/passwordChangeVerifyOTP'
@@ -42,7 +41,7 @@ function Page() {
   });
 
   // Helper to get OTP request data
-  const getOtpRequestData = (extra: Record<string, any> = {}) => {
+  const getOtpRequestData = (extra: Record<string, unknown> = {}) => {
     const mobile = sessionStorage.getItem('userPhone');
     const country = sessionStorage.getItem('country')!;
     const browserID = localStorage.getItem('BROWSER_ID');

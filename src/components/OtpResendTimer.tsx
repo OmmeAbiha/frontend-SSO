@@ -4,10 +4,9 @@ import LoadingBox from "./LoadingBox";
 
 interface OtpResendTimerProps {
   initialTime: number;
-  onResend: () => Promise<any> | void;
+  onResend: () => Promise<unknown> | void;
   resendText?: string;
   countdownText?: string | ((formattedTime: string) => string);
-  loadingText?: string;
 }
 
 const OtpResendTimer = ({
@@ -15,34 +14,32 @@ const OtpResendTimer = ({
   onResend,
   resendText = "ارسال مجدد کد",
   countdownText = "ارسال مجدد تا",
-  loadingText = "در حال ارسال...",
 }: OtpResendTimerProps) => {
   const [timeLeft, setTimeLeft] = useState(initialTime);
   const [isResendVisible, setIsResendVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const startTimer = () => {
-    setTimeLeft(initialTime);
-    setIsResendVisible(false);
-    intervalRef.current = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev <= 1) {
-          clearInterval(intervalRef.current!);
-          setIsResendVisible(true);
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-  };
-
   useEffect(() => {
+    const startTimer = () => {
+      setTimeLeft(initialTime);
+      setIsResendVisible(false);
+      intervalRef.current = setInterval(() => {
+        setTimeLeft(prev => {
+          if (prev <= 1) {
+            clearInterval(intervalRef.current!);
+            setIsResendVisible(true);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    };
     startTimer();
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []);
+  }, [initialTime]);
 
   const handleResend = async () => {
     if (isLoading) return;
@@ -53,17 +50,47 @@ const OtpResendTimer = ({
       if (result instanceof Promise) {
         setIsLoading(true);
         const response = await result;
-        const status = (response as any)?.status;
+        // Type-safe status check
+        const status =
+          response && typeof response === "object" && "status" in response
+            ? (response as { status?: number }).status
+            : undefined;
 
         if (status === 200 || status === undefined) {
-          startTimer();
+          // Restart timer
+          setTimeLeft(initialTime);
+          setIsResendVisible(false);
+          if (intervalRef.current) clearInterval(intervalRef.current);
+          intervalRef.current = setInterval(() => {
+            setTimeLeft(prev => {
+              if (prev <= 1) {
+                clearInterval(intervalRef.current!);
+                setIsResendVisible(true);
+                return 0;
+              }
+              return prev - 1;
+            });
+          }, 1000);
         } else {
           setIsResendVisible(true);
         }
       } else {
-        startTimer();
+        // Restart timer
+        setTimeLeft(initialTime);
+        setIsResendVisible(false);
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        intervalRef.current = setInterval(() => {
+          setTimeLeft(prev => {
+            if (prev <= 1) {
+              clearInterval(intervalRef.current!);
+              setIsResendVisible(true);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
       }
-    } catch (error) {
+    } catch {
       setIsResendVisible(true);
     } finally {
       setIsLoading(false);
@@ -99,4 +126,4 @@ const OtpResendTimer = ({
   );
 };
 
-export default OtpResendTimer
+export default OtpResendTimer;

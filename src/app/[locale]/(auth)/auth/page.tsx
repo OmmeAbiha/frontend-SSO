@@ -1,7 +1,8 @@
-"use client"
+"use client";
+
 import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams } from "next/navigation";
 // I18n
 import { useRouter } from '@/i18n/routing';
 import { useTranslations, useLocale } from 'next-intl';
@@ -13,7 +14,6 @@ import TextBox from '@/src/components/inputs/TextBox';
 import Button from '@/src/components/Button';
 import CountryPicker from './_components/CountryPicker';
 import ResponsiveDialogDrawer from '@/src/components/ResponsiveDialogDrawer';
-import { toastHandler } from '@/src/components/CustomToast';
 // Iconsax
 import { ArrowLeft, SearchNormal1 } from 'iconsax-reactjs';
 // Framer Motion
